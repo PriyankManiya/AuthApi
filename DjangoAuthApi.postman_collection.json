@@ -1,0 +1,375 @@
+{
+	"info": {
+		"_postman_id": "1990f2e3-6e79-4647-ad88-27a153bfb44d",
+		"name": "DjangoAuthApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15718630"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Cretate User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "hello1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Admin",
+									"type": "text"
+								},
+								{
+									"key": "password2",
+									"value": "Admin",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Hello Maniya",
+									"type": "text"
+								},
+								{
+									"key": "tc",
+									"value": "True",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/user/register/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"user",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Profile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/user/profile/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"user",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Priyank Maniya",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/user/profile/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"user",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{local}}/user/profile/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"user",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "priyank@gmail.com",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "Admin",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "priyank@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/user/login/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"user",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "password",
+									"value": "Admin",
+									"type": "text"
+								},
+								{
+									"key": "password2",
+									"value": "Admin",
+									"type": "text"
+								},
+								{
+									"key": "old_password",
+									"value": "Admin1",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/user/changepassword/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"user",
+								"changepassword",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "priyank@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/user/send-reset-password/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"user",
+								"send-reset-password",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "password",
+									"value": "Admin",
+									"type": "text"
+								},
+								{
+									"key": "password2",
+									"value": "Admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/user/reset-password/MQ/bgwic0-cf9d220feb0d41f69762150227afdc4c/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"user",
+								"reset-password",
+								"MQ",
+								"bgwic0-cf9d220feb0d41f69762150227afdc4c",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
