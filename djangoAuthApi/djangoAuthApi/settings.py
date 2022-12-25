@@ -145,7 +145,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'account.User'
 
 # Email Settings
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'   
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'   # To Print in console
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # To send email
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
