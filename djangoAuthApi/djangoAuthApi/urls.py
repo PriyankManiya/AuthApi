@@ -19,5 +19,6 @@ from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/user/', include('account.urls'))
+    path('api/user/', include('account.urls')),
+    path('api/issue/', include('ticket.urls'))
 ]

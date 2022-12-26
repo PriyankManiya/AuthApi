@@ -36,13 +36,15 @@ class UserLoginSerializer(serializers.ModelSerializer):
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id','email', 'name', 'tc', 'created_at', 'updated_at')
+        fields = ('id','email', 'name', 'tc', 'created_at', 'updated_at', 'is_admin', 'is_active')
         extra_kwargs = {
             'id': {'read_only': True},
             'email': {'read_only': True},
             'created_at': {'read_only': True},
             'updated_at': {'read_only': True},
         }
+    
+        
         
 class UserChangePasswordSerializer(serializers.ModelSerializer):
     password = serializers.CharField(style={'input_type': 'password'}, write_only=True)

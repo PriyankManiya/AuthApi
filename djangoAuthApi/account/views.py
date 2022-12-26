@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate
 from account.renderers import UserJSONRenderer
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import permissions
+from account.models import User
 
 # Generate Token Manually
 
@@ -115,8 +116,24 @@ class ResetPasswordView(APIView):
     renderer_classes = [UserJSONRenderer]
 
     def post(self, request, uid, token, formate=None):
-        serializer = serializers.ResetPasswordSerializer(data=request.data, context={'uid': uid, 'token': token})
+        serializer = serializers.ResetPasswordSerializer(
+            data=request.data, context={'uid': uid, 'token': token})
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response({'msg': 'Password Reset Success'}, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class UsersList(APIView):
+    renderer_classes = [UserJSONRenderer]
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request, formate=None):
+        user = request.user
+        if (User.has_perm(user, 'is_admin') == False):
+            return Response({'errors': {'msg': 'You are not Admin'}}, status=status.HTTP_400_BAD_REQUEST)
+
+        data = User.objects.values(
+            'name', 'email', 'tc', 'is_active', 'is_admin')
+        userList = list(data)
+        return Response({'msg': 'Data Fetch Success', 'data': userList}, status=status.HTTP_200_OK)

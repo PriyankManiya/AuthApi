@@ -1,0 +1,14 @@
+{
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "editor.formatOnPaste": false, // required 
+    "editor.formatOnType": false, // required
+    "editor.formatOnSave": true, // optional 
+    "editor.formatOnSaveMode": "file", // required to format on save
+    "files.autoSave": "onFocusChange",
+    "[python]": {
+      "editor.defaultFormatter": "ms-python.python"
+    },
+    "[sql]": {
+      "editor.defaultFormatter": "mtxr.sqltools"
+    } // optional but recommended
+  }

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'account',
+    'ticket',
     'rest_framework',
     'rest_framework_simplejwt',
 ]
@@ -147,7 +148,7 @@ AUTH_USER_MODEL = 'account.User'
 # Email Settings
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'   # To Print in console
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # To send email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # To send email
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
@@ -157,8 +158,8 @@ EMAIL_USE_TLS = True
 
 # Json Web Token Settings
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=10),
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': False,
     'UPDATE_LAST_LOGIN': False,
@@ -196,5 +197,6 @@ CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:3000',
 ]
 
+
 # For Reset Password Link
-PASSWORD_RESET_TIMEOUT_DAYS = 900 # 15 minutes
+PASSWORD_RESET_TIMEOUT_DAYS = 900  # 15 minutes
