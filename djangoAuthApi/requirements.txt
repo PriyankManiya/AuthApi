@@ -1,6 +1,6 @@
 asgiref==3.6.0
 autopep8==2.0.1
-Django==4.1.4
+Django==4.1.6
 django-cors-headers==3.13.0
 django-dotenv==1.4.2
 django-filter==22.1
